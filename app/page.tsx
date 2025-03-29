@@ -1,3 +1,4 @@
+import Footer from "@/components/common/Footer";
 import Features from "@/components/Landing/Features";
 import Landing from "@/components/Landing/Landing";
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <section>
       <Landing />
       <Features />
+      <Footer />
     </section>
   );
 }
