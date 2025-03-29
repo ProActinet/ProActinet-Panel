@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --background: #f5f5f5;
+  --foreground: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a1a1a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+@keyframes glow-animation {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.glow-effect {
+  height: 0;
+  width: 0;
+  background-color: #c72d5b; /* pink accent color */
+  position: absolute;
+  box-shadow: 0 0 100px 100px rgba(185, 34, 79, 0.315);
+  animation: glow-animation 1.5s ease-in-out forwards;
+}
+.glow-effect-xl {
+  height: 0;
+  width: 0;
+  background-color: #d13161; /* pink accent color */
+  position: absolute;
+  box-shadow: 0 0 350px 350px rgba(185, 34, 79, 0.11);
+}
+
+.glow-effect-common {
+  height: 0;
+  width: 0;
+  background-color: #d13161; /* pink accent color */
+  box-shadow: 0 0 350px 350px rgba(185, 34, 79, 0.11);
+}
+/* 
+h-0 w-0 bg-pink-accent absolute shadow-[0_0_200px_200px_rgba(255,192,203,0.9)] */
+
+@layer base {
+  :root {
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}

@@ -1,0 +1,27 @@
+/* Apply this to the body or main container */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+input:focus::placeholder {
+  transition: opacity 0.5s cubic-bezier(1, 0, 0, 1);
+  opacity: 0;
+}
+
+input::placeholder {
+  transition: opacity 0.9s cubic-bezier(0, 1, 1, 0);
+  opacity: 1;
+}
