@@ -21,7 +21,7 @@ export const loginUser = async (
   const backendIp = process.env.NEXT_PUBLIC_BACKEND_IP;
   if (!backendIp)
     throw new Error("Backend IP is not defined in environment variables");
-  const response = await fetch(`http://${backendIp}/api/login/`, {
+  const response = await fetch(`https://${backendIp}/api/login/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -62,7 +62,7 @@ export const handleSignUpAttempt = async (
   if (!backendIp)
     throw new Error("Backend IP is not defined in environment variables");
 
-  const response = await fetch(`http://${backendIp}/api/register/`, {
+  const response = await fetch(`https://${backendIp}/api/register/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
