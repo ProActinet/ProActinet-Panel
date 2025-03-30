@@ -7,29 +7,30 @@ import "./styles.css";
 
 const RealtimeGraph = () => {
   const user = useAuthStore((state) => state.user);
-  if (!user) {
-    return <div>Loading...</div>;
-  }
-
   const [data, setData] = useState<{ timestamps: string[] }[] | null>(null);
   const [error, setError] = useState("");
-  const [keys, setKeys] = useState<number[]>([]); // 👈 Changed to number[]
+  const [keys, setKeys] = useState<number[]>([]);
   const [values, setValues] = useState<number[]>([]);
+  const [isLoading, setIsLoading] = useState(true); // ✅ Track loading state
 
-  // ✅ Fetch the data once
+  // ✅ Only fetch data after user is fetched
   useEffect(() => {
-    const handleFetch = async () => {
-      try {
-        const result = await getUsageData("test1", "marsalsoren1050@gmail.com");
-        setData(result);
-        setError("");
-      } catch (err) {
-        setError("Failed to fetch usage data.");
-      }
-    };
+    if (user) {
+      const handleFetch = async () => {
+        try {
+          const result = await getUsageData(user.username, user.email);
+          setData(result);
+          setError("");
+        } catch (err) {
+          setError("Failed to fetch usage data.");
+        } finally {
+          setIsLoading(false); // ✅ Set loading to false after fetching
+        }
+      };
 
-    handleFetch();
-  }, []);
+      handleFetch();
+    }
+  }, [user]); // 👈 Fetch only after user is available
 
   // ✅ Convert timestamps and generate series only when data changes
   useEffect(() => {
@@ -75,8 +76,13 @@ const RealtimeGraph = () => {
     }
   }, [data]);
 
-  if (!data) {
-    return <div>Fetching Results...</div>;
+  // ✅ Show loading while user data or usage data is being fetched
+  if (!user || isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
   }
 
   return (
@@ -87,7 +93,7 @@ const RealtimeGraph = () => {
         stroke: "#ff2e82",
         fill: "#ff2e82",
       }}
-      xAxis={[{ data: keys }]} // 👈 Keys are now numbers
+      xAxis={[{ data: keys }]}
       colors={["#FF0000"]}
       series={[
         {
