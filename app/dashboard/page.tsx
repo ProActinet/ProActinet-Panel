@@ -5,6 +5,7 @@ import CircularProgressBar from "@/components/molecules/ProgressBar";
 import { Skeleton } from "@/components/ui/skeleton";
 import "./style.css";
 import RealtimeDisplay from "@/dynamicData/realtimeLogs";
+import RealtimeGraph from "@/dynamicData/realtimeGraph";
 
 const dashboard: NextPage = () => {
   var user;
@@ -259,6 +260,10 @@ const dashboard: NextPage = () => {
                   <h2 className="text-3xl font-bold text-white">
                     Activity Insights
                   </h2>
+                </div>
+                <div className="w-full min-h-[20rem] max-h-[25rem] overflow-scroll translate-x-[-35px] sm:translate-x-[0px] py-6">
+                  {/* repeatable component  */}
+                  <RealtimeGraph />
                 </div>
               </div>
             </div>
