@@ -11,7 +11,7 @@ const dashboard: NextPage = () => {
   var user;
   try {
     user = useAuthStore((state) => state.user);
-    console.log(user);
+    // console.log(user);
   } catch {
     window.location.href = "/auth";
     return <section>Please Login First</section>;

@@ -11,7 +11,7 @@ export default function RealtimeDisplay() {
       const protocol = window.location.protocol === "https:" ? "wss" : "ws";
       // Build the WebSocket URL.
       const backendIp = process.env.NEXT_PUBLIC_BACKEND_IP || "192.168.0.1";
-      const wsUrl = `${protocol}://${backendIp}/ws/frontend-logs/`;
+      const wsUrl = `wss://${backendIp}/ws/frontend-logs/`;
       socket = new WebSocket(wsUrl);
 
       socket.onopen = () => {

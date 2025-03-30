@@ -14,7 +14,6 @@ const NavigationBar = () => {
   const { user, clearAuth } = useAuthStore();
 
   useEffect(() => {
-    console.log("User from store: ", user);
     setUserData(user);
   }, [user]);
 
