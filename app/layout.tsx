@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "ProActinet",
   description:
     "Empowering your digital frontier with innovative antibotnet security solutions. Integrating advanced technologies for comprehensive protection. Adapting continuously to meet tomorrow's cybersecurity challenges.",
+  icons: {
+    icon: "/proactinet-logo.png", // Add your favicon
+  },
 };
 
 export default function RootLayout({

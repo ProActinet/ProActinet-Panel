@@ -18,7 +18,7 @@ const Landing = () => {
         </span>
       </div>
       <div className="w-full flex md:flex-row flex-col gap-y-4 items-center justify-center gap-x-4 pt-4 [&>a>button]:text-lg [&>a>button]:py-6 [&>a>button]:px-8 [&>a>button]:hover:text-white hover:scale-105 transition-transform duration-300 fade-in-up">
-        <Link href="/">
+        <Link href="https://youtu.be/GC65GEMmGZc?si=NSwigrq1ZYDd9cVN">
           <Button className="" variant={"default"}>
             Check Demo
           </Button>

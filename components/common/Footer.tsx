@@ -117,7 +117,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="https://youtu.be/GC65GEMmGZc?si=NSwigrq1ZYDd9cVN"
                   className="group flex items-center text-pink-200 hover:text-white transition-colors duration-300"
                 >
                   <span className="group-hover:translate-x-1 transition-transform duration-300">
